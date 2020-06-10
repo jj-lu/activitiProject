@@ -1,0 +1,32 @@
+package com.jj.test;
+
+import org.activiti.engine.ProcessEngine;
+import org.activiti.engine.ProcessEngineConfiguration;
+import org.activiti.engine.ProcessEngines;
+import org.junit.Test;
+
+/**
+ * 测试类：测试activiti所需要的25张表生成
+ */
+public class ActivitiTest {
+
+
+    @Test
+    public void testGenTable(){
+        //创建ProcessEngineConfiguration对象
+        ProcessEngineConfiguration configuration = ProcessEngineConfiguration
+                .createProcessEngineConfigurationFromResource("activiti.cfg.xml");
+        //创建ProcessEngine对象
+        ProcessEngine engine = configuration.buildProcessEngine();
+        System.out.println("success");
+    }
+
+    /**
+     * 更简单的方法。需要activiti配置文件名称为activiti.cfg.xml，bean的id为processEngineConfiguration
+     */
+    @Test
+    public void testGenTable2(){
+        ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
+        System.out.println("success");
+    }
+}
