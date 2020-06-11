@@ -99,6 +99,14 @@
       <version>1.4</version>
     </dependency>
 
+    <!--文件的读写-->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.6</version>
+    </dependency>
+
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
