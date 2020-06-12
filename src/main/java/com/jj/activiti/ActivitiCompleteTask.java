@@ -59,7 +59,7 @@ public class ActivitiCompleteTask {
         TaskService taskService = processEngine.getTaskService();
         //taskService.complete("7002");
         Task task = taskService.createTaskQuery()
-                .taskAssignee("wangwu")
+                .taskAssignee("zs")
                 .singleResult();
         System.out.println("任务ID："+task.getId());
         taskService.complete(task.getId());

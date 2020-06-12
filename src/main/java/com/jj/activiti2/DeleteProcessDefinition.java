@@ -20,7 +20,7 @@ public class DeleteProcessDefinition {
         ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
         RepositoryService repositoryService = processEngine.getRepositoryService();
         //删除流程定义
-        repositoryService.deleteDeployment("1");
+        repositoryService.deleteDeployment("12501");
         System.out.println("success");
     }
 }
