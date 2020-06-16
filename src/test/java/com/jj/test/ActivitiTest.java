@@ -4,11 +4,18 @@ import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.ProcessEngineConfiguration;
 import org.activiti.engine.ProcessEngines;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * 测试类：测试activiti所需要的25张表生成
  */
 public class ActivitiTest {
+
+    @Autowired
+    private ProcessEngineConfiguration processEngineConfiguration;
 
 
     @Test
@@ -28,5 +35,15 @@ public class ActivitiTest {
     public void testGenTable2(){
         ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
         System.out.println("success");
+    }
+
+    /**
+     * test:SpringIOC
+     */
+    @Test
+    public void testIOC(){
+        System.out.println("testIOC:"+processEngineConfiguration);
+        ProcessEngine processEngine = processEngineConfiguration.buildProcessEngine();
+        System.out.println(processEngine);
     }
 }

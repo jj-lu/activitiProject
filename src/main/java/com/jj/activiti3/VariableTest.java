@@ -1,14 +1,23 @@
 package com.jj.activiti3;
 
-import org.activiti.engine.ProcessEngine;
-import org.activiti.engine.ProcessEngines;
-import org.activiti.engine.RepositoryService;
-import org.activiti.engine.RuntimeService;
+import org.activiti.engine.*;
 import org.activiti.engine.repository.Deployment;
 import org.activiti.engine.repository.ProcessDefinition;
 import org.activiti.engine.runtime.ProcessInstance;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class VariableTest {
+
+    @Autowired
+    private static ProcessEngineConfiguration processEngineConfiguration;
+
+    /**
+     * test:springIOC
+     */
+    public static void main(String[] args){
+        System.out.println(processEngineConfiguration);//null
+        String history = processEngineConfiguration.getHistory();//exception
+    }
 
     /**
      * 流程部署——
@@ -34,7 +43,7 @@ public class VariableTest {
      *
      * @param args
      */
-    public static void main(String[] args){
+    public static void main2(String[] args){
         ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
         RepositoryService repositoryService = processEngine.getRepositoryService();
         ProcessDefinition singleResult = repositoryService.createProcessDefinitionQuery()
